@@ -1,0 +1,65 @@
+{
+  "projectType": "general",
+  "projectName": "Hackwize",
+  "projectDescription": "A collection of JavaScript bookmarklets and hacks that bypass Linewize network filtering, providing students with unrestricted internet access in school environments.",
+  "theme": "luma",
+  "primaryColor": "#7C3AED",
+  "lightColor": "#A78BFA",
+  "darkColor": "#4C1D95",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "how-it-works"
+            ]
+          },
+          {
+            "group": "Hacks & Tools",
+            "pages": [
+              "tools/linewize-killer",
+              "tools/proxies-menu",
+              "tools/proxies-menu-lite",
+              "tools/bookmarklet-menu",
+              "tools/iready-hacks"
+            ]
+          },
+          {
+            "group": "Guides",
+            "pages": [
+              "guides/installing-bookmarklets",
+              "guides/using-proxies",
+              "guides/troubleshooting"
+            ]
+          },
+          {
+            "group": "Community & Legal",
+            "pages": [
+              "community",
+              "license"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Linewize Killer — bypasses Linewize content filtering and rate limits",
+    "Proxies Menu — floating draggable menu for launching proxy bookmarklets",
+    "Proxies Menu Lite — lightweight version of the Proxies Menu",
+    "Bookmarklet Menu — customizable draggable overlay menu for managing bookmarklets",
+    "I-Ready Hacks (jVoid Revamp) — extensive obfuscated hack suite targeting the i-Ready learning platform"
+  ],
+  "publicApiSurface": [
+    "javascript: Linewize Killer bookmarklet",
+    "javascript: Proxies Menu bookmarklet",
+    "javascript: Proxies Menu Lite bookmarklet",
+    "javascript: Bookmarklet Menu bookmarklet",
+    "javascript: I-Ready Hacks (jVoid Revamp) bookmarklet"
+  ]
+}

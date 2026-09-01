@@ -1,0 +1,73 @@
+---
+title: "Troubleshooting Common Hackwize Issues"
+sidebarTitle: "Troubleshooting"
+description: "Solutions for the most common problems encountered when installing or running Hackwize bookmarklets in any browser."
+---
+
+Covers the most common issues encountered when using Hackwize bookmarklets and how to resolve them. If your problem is not listed here, the community Discord is the best place to get real-time help from other users.
+
+<Accordion title="The bookmarklet doesn't seem to do anything">
+  The most likely cause is that the bookmark URL does not start with `javascript:` exactly. Some browsers silently strip that prefix when you paste into the URL field — particularly if you paste while the field shows a placeholder.
+
+  **Fix:**
+  1. Right-click the bookmark → **Edit bookmark** (or equivalent for your browser).
+  2. Inspect the URL field. If it is blank or shows a normal `https://` address, the prefix was dropped.
+  3. Delete the contents of the URL field entirely, type `javascript:` manually, and then paste the rest of the code immediately after it without any space.
+  4. Save and try again.
+</Accordion>
+
+<Accordion title="Linewize Killer redirects me to a blank page">
+  This is **expected behavior**. Linewize Killer intentionally navigates to `http://autologout.linewize.net/`, which is Linewize's own logout endpoint. Visiting that URL ends your active Linewize session and produces a blank or minimal confirmation page.
+
+  **What to do next:** After the redirect completes, use your browser's back button or type your destination URL directly in the address bar. Your Linewize session will have been cleared.
+</Accordion>
+
+<Accordion title="The Proxies Menu doesn't appear">
+  Some pages use a strict [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) or actively block inline script execution, which can prevent the overlay from rendering.
+
+  **Fixes to try:**
+  - Refresh the page and click the bookmarklet **immediately** after the browser starts loading — before the page's own scripts finish setting up script restrictions.
+  - If the page is already fully blocked, try clicking the bookmarklet while the browser still shows the "Connecting…" state.
+  - Switch to a different starting page (e.g. a new tab) and activate the overlay from there, then navigate.
+</Accordion>
+
+<Accordion title="Ctrl+E doesn't hide the Proxies Menu">
+  The keyboard shortcut listener requires the browser window to be focused and no text-input element to be active. If your cursor is inside a search box or form field, the keypress is captured by that field instead of the bookmarklet.
+
+  **Fix:** Click anywhere on the page **background** (not on a link, button, or input field) to remove focus from any form element, then press **Ctrl+E** again.
+</Accordion>
+
+<Accordion title="I-Ready Hacks bookmarklet is too long to paste">
+  At approximately 626 KB, the I-Ready Hacks bookmarklet far exceeds the URL-field character limit enforced by most browsers and operating systems when pasting through the GUI.
+
+  **Fix:**
+  1. Open the [Hackwize GitHub repository](https://github.com/sh495/Hackwize) in a **desktop browser**.
+  2. Navigate to the I-Ready Hacks source file and use the browser's **Raw** view to copy the complete untruncated code.
+  3. Paste it directly into the bookmark URL field via the **Edit bookmark** dialog rather than the address bar.
+
+  Do not attempt this on a mobile device — mobile browsers impose even stricter limits and are unlikely to execute a bookmarklet of this size.
+</Accordion>
+
+<Accordion title="My browser says the bookmark URL is invalid">
+  Browsers reject bookmark URLs that contain literal line breaks or leading/trailing whitespace. If the bookmarklet code was copied from a rendered webpage, a README, or a text editor that wraps long lines, newline characters may have been inserted.
+
+  **Fix:**
+  1. Paste the code into a plain-text editor (Notepad, TextEdit in plain-text mode, etc.).
+  2. Manually remove all line breaks so the entire code sits on a **single line** starting with `javascript:`.
+  3. Copy the single-line version and paste it into the bookmark URL field.
+</Accordion>
+
+<Note>
+  For additional help or to report a bug, join the Hackwize community Discord at [discord.gg/PDRTFTHQnA](https://discord.gg/PDRTFTHQnA). The community can often identify issues faster than any written guide.
+</Note>
+
+## Still Stuck?
+
+<CardGroup cols={2}>
+  <Card title="Community" icon="discord" href="/community">
+    Join the Discord and connect with other Hackwize users.
+  </Card>
+  <Card title="Introduction" icon="book-open" href="/introduction">
+    Go back to the beginning and review what Hackwize is and how it works.
+  </Card>
+</CardGroup>

@@ -1,0 +1,67 @@
+---
+title: "How Hackwize Bypasses Linewize Filters"
+sidebarTitle: "How It Works"
+description: "A technical overview of the bookmarklet execution model, the Linewize auto-logout technique, DOM injection for proxy menus, and JS obfuscation."
+---
+
+Hackwize takes a purely client-side approach: every tool is a JavaScript bookmarklet that runs inside your browser tab, requiring no server infrastructure, no browser extension, and no changes to network settings. Each tool exploits a different weakness in the way Linewize enforces its filters, from redirecting through Linewize's own logout flow to injecting a floating proxy menu directly into the page DOM.
+
+## Bookmarklets
+
+A **bookmarklet** is a browser bookmark whose URL field contains a `javascript:` URI instead of a web address. When you click the bookmark, the browser evaluates the JavaScript expression in the context of the currently loaded page, giving the code full access to the page's DOM, `window` object, and navigation APIs — the same access any inline script on that page would have.
+
+Because bookmarklets are stored in the browser's bookmark manager rather than installed as extensions, they are invisible to extension-scanning tools and do not require any special browser permissions to add. The only requirement is that the bookmarks bar is visible and the browser has not disabled `javascript:` bookmark execution (most desktop browsers still allow it).
+
+## Linewize Killer Technique
+
+The Linewize Killer works by redirecting the current tab to `http://autologout.linewize.net/` — a URL that belongs to Linewize's own infrastructure and is designed to end an active filtering session. By navigating to this endpoint, the bookmarklet triggers Linewize's own auto-logout mechanism, which effectively disables content filtering for the duration of that session without requiring any credentials or administrative access.
+
+The redirect is achieved with a single assignment to `window.location.href`:
+
+```javascript
+window['location']['href'] = 'http://autologout.linewize.net/';
+```
+
+The rest of the bookmarklet code — the obfuscated function wrappers and `console.log` calls — is cosmetic scaffolding that prints status messages to the browser console. The core action is that one navigation assignment.
+
+## Proxy Menus
+
+The Proxies Menu takes a different approach: rather than navigating away from the page, it **injects a floating UI element** directly into the current page's DOM. The bookmarklet creates a `<div>` with `position: fixed` and a high `z-index` (9999), styled as a semi-transparent dark panel, and appends it to `document.body`. Inside the panel, each configured proxy or bookmarklet is rendered as a clickable `<a>` link.
+
+The overlay is also **draggable** — mousedown, mousemove, and mouseup event listeners track pointer delta and update the panel's `left`/`top` CSS properties accordingly. Pressing `Ctrl+E` hides the menu. This means the tool stays accessible on any page without requiring a new navigation or losing the current page context.
+
+```javascript
+var menu = document.createElement("div");
+menu.style.position = "fixed";
+menu.style.top = "10px";
+menu.style.right = "10px";
+menu.style.zIndex = "9999";
+// ... drag event listeners attached after appending to document.body
+```
+
+## Obfuscation
+
+The Linewize Killer and I-Ready Hacks bookmarklets use **JavaScript obfuscation** to make their source code harder to read and to avoid simple text-based content-filter detection (e.g., filters that block pages or scripts containing the string `autologout.linewize.net` in plain text).
+
+The obfuscation pattern used is a common one:
+
+1. **Encoded string array** — all meaningful string literals (URLs, `console.log` messages, property names like `"href"` and `"location"`) are stored in a scrambled array (`_0x48c5`).
+2. **Self-invoking decoder** — a lookup function (`_0x3372`) translates numeric indices back to the original strings at runtime, using an integer offset and an integrity-check loop that shuffles the array until a checksum matches.
+3. **Property access via decoded strings** — instead of `window.location.href`, the code writes `window[_0x394b30(0x6e)][_0x394b30(0x7b)]`, where the decoded values of those indices are `"location"` and `"href"` respectively.
+
+This obfuscation does not change what the code *does* — it only changes how it *reads* as static text.
+
+<Warning>
+  Use these tools responsibly and be aware of your school's acceptable-use policies. Bypassing network filters may violate your school's rules and could have disciplinary consequences. Hackwize and its contributors provide this software with no warranty and accept no liability for how it is used.
+</Warning>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Quickstart" icon="rocket" href="/quickstart">
+    Install and run your first bookmarklet in under two minutes.
+  </Card>
+  <Card title="Installing Bookmarklets" icon="bookmark" href="/guides/installing-bookmarklets">
+    Detailed installation instructions for every major browser.
+  </Card>
+</CardGroup>

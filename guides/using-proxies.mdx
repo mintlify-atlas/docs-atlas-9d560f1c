@@ -1,0 +1,73 @@
+---
+title: "Using Proxy Bookmarklets to Access Blocked Sites"
+sidebarTitle: "Using Proxies"
+description: "Learn how to launch and use the Proxies Menu bookmarklet to access proxy tools without leaving your current page."
+---
+
+The Proxies Menu bookmarklet injects a lightweight floating overlay directly into whatever page you are currently viewing, giving you one-click access to a curated set of proxy tools without navigating away or opening a new tab. Because it runs entirely as a bookmarklet, no browser extension or app installation is required — just a single bookmark.
+
+## Prerequisites
+
+Before using the Proxies Menu you will need:
+
+- The **Proxies Menu** bookmarklet installed in your browser. See the [Installing Bookmarklets guide](/guides/installing-bookmarklets) for step-by-step instructions.
+- The [Proxies Menu tool page](/tools/proxies-menu) for the latest bookmarklet code.
+
+## Launching the Menu
+
+<Steps>
+  <Step title="Navigate to any page">
+    Go to the page you want to work from — this can even be a site that Linewize has blocked (the bookmarklet code runs before the block page finishes loading).
+  </Step>
+  <Step title="Click the Proxies Menu bookmark">
+    Find the **Proxies Menu** entry in your bookmarks bar and click it. The JavaScript runs immediately in the context of the current page.
+  </Step>
+  <Step title="The floating overlay appears">
+    A draggable panel will appear in the **top-right corner** of the viewport. It lists all configured bookmarklet shortcuts as clickable links.
+  </Step>
+  <Step title="Click a link to activate it">
+    Click any entry in the overlay to run that bookmarklet. The corresponding tool activates on the current page without closing the menu.
+  </Step>
+</Steps>
+
+## Moving the Menu
+
+If the overlay covers content you need to see, click and drag the **header bar** of the panel to reposition it anywhere on the screen. It will stay in the new position for the remainder of the session.
+
+## Hiding the Menu
+
+Press **Ctrl+E** at any time to toggle the overlay's visibility. Press it again to bring it back. This is useful when you need to interact with the underlying page without the panel getting in the way.
+
+<Note>
+  If **Ctrl+E** does not respond, make sure the browser window is focused and no text input field is active. Click somewhere on the page background first, then try the shortcut again.
+</Note>
+
+## Customizing Bookmarks
+
+The Proxies Menu is driven by a `bookmarks` array near the top of the bookmarklet source code. Each entry is a plain object with a `name` label and a `url` value. You can add your own entries by editing the bookmarklet (right-click → Edit bookmark) and inserting a new object into that array.
+
+**Example — adding a custom proxy entry:**
+
+```javascript
+{
+  name: "My Proxy",
+  url: "javascript:window.location.href='https://my-proxy.example.com';"
+}
+```
+
+Insert your object into the `bookmarks` array alongside the existing entries, separating each with a comma. Reload the bookmarklet on any page to see your new entry in the overlay.
+
+<Note>
+  The built-in **I-Ready** entry in the Proxies Menu fetches its payload at runtime from `https://plu.wiki/files/bookmarklet.js`. If that URL becomes unreachable the I-Ready hack will not load, but all other menu entries will continue to work normally.
+</Note>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Proxies Menu Tool" icon="layer-group" href="/tools/proxies-menu">
+    Get the latest Proxies Menu bookmarklet code and release notes.
+  </Card>
+  <Card title="Troubleshooting" icon="wrench" href="/guides/troubleshooting">
+    Fix common issues with bookmarklets and the Proxies Menu.
+  </Card>
+</CardGroup>

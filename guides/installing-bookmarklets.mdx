@@ -1,0 +1,107 @@
+---
+title: "How to Install Bookmarklets in Any Browser"
+sidebarTitle: "Installing"
+description: "Learn how to install JavaScript bookmarklets in Chrome, Edge, Firefox, and Safari to start using Hackwize tools."
+---
+
+Bookmarklets are ordinary browser bookmarks whose URL contains JavaScript code instead of a web address. When you click one, the browser runs that code on the current page rather than navigating anywhere — making them a lightweight, install-free way to extend any site's behavior without extensions or downloads.
+
+## What You Need
+
+- Any modern desktop browser (Chrome, Edge, Firefox, or Safari)
+- A **visible bookmarks bar** — most browsers hide it by default, so you may need to enable it first
+- The bookmarklet code you want to install (it will always start with `javascript:`)
+
+## Installing a Bookmarklet
+
+<Tabs>
+  <Tab title="Chrome / Edge">
+    <Steps>
+      <Step title="Show the bookmarks bar">
+        Press **Ctrl+Shift+B** (Windows / Linux) or **Cmd+Shift+B** (macOS) to toggle the bookmarks bar. You should see it appear just below the address bar.
+      </Step>
+      <Step title="Open the new-bookmark dialog">
+        Right-click any empty space on the bookmarks bar and choose **Add page…** (Chrome) or **Add favorite** (Edge).
+      </Step>
+      <Step title="Set a name">
+        Enter any name you like — for example, `Proxies Menu` or `Linewize Killer`. The name is just a label for you.
+      </Step>
+      <Step title="Paste the bookmarklet code as the URL">
+        Clear the URL field and paste the full bookmarklet code, beginning with `javascript:`. Make sure no characters are missing from the start.
+      </Step>
+      <Step title="Save">
+        Click **Save**. The bookmark now appears on your bookmarks bar, ready to use.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Firefox">
+    <Steps>
+      <Step title="Show the bookmarks toolbar">
+        Press **Ctrl+Shift+B** (Windows / Linux) or **Cmd+Shift+B** (macOS), or go to **View → Toolbars → Bookmarks Toolbar** and select **Always Show**.
+      </Step>
+      <Step title="Open the new-bookmark dialog">
+        Right-click the bookmarks toolbar and choose **Add Bookmark…**.
+      </Step>
+      <Step title="Set a name">
+        Type a friendly name for the bookmarklet in the **Name** field.
+      </Step>
+      <Step title="Paste the bookmarklet code as the URL">
+        Clear the **URL** field and paste the full bookmarklet code starting with `javascript:`.
+      </Step>
+      <Step title="Save">
+        Click **Save**. The bookmarklet will appear in your bookmarks toolbar.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Safari">
+    <Steps>
+      <Step title="Show the Favorites Bar">
+        Go to **View → Show Favorites Bar** or press **Shift+Cmd+B**.
+      </Step>
+      <Step title="Add a placeholder bookmark">
+        Navigate to any webpage, then go to **Bookmarks → Add Bookmark…**. Choose **Favorites Bar** as the location and save.
+      </Step>
+      <Step title="Edit the bookmark">
+        Right-click the bookmark you just created in the Favorites Bar and choose **Edit Address…**.
+      </Step>
+      <Step title="Paste the bookmarklet code as the URL">
+        Replace the existing URL with the full bookmarklet code starting with `javascript:`, then press **Enter**.
+      </Step>
+      <Step title="Rename it">
+        Right-click the bookmark again and choose **Rename** to give it a meaningful label.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+<Warning>
+  Some browsers — particularly Safari on iOS and most mobile browsers — restrict or silently strip `javascript:` URLs. A **desktop browser** is strongly recommended for all Hackwize bookmarklets.
+</Warning>
+
+## Verifying the Install
+
+Navigate to any webpage (your school portal, Google, etc.) and click the bookmarklet in your bookmarks bar. If it was installed correctly you will immediately see it take effect — a redirect, a floating overlay, or another visual change depending on which tool you installed. No page reload is triggered before the code runs.
+
+## Updating a Bookmarklet
+
+When a newer version of a bookmarklet is released, you do not need to delete and re-create it. Instead:
+
+1. Right-click the existing bookmark on the bookmarks bar.
+2. Choose **Edit bookmark** (Chrome / Edge), **Properties…** (Firefox), or **Edit Address…** (Safari).
+3. Replace the URL field with the new `javascript:` code.
+4. Save.
+
+<Tip>
+  Keep your bookmarks bar permanently visible so you can fire a bookmarklet on any page with a single click, even before a blocked page fully loads.
+</Tip>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Linewize Killer" icon="shield-xmark" href="/tools/linewize-killer">
+    Instantly log out of Linewize filtering with one click.
+  </Card>
+  <Card title="Using Proxies" icon="globe" href="/guides/using-proxies">
+    Learn how to use the Proxies Menu to access blocked sites.
+  </Card>
+</CardGroup>

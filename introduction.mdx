@@ -1,0 +1,41 @@
+---
+title: "Hackwize: Bypass Linewize Filters with Bookmarklets"
+sidebarTitle: "Introduction"
+description: "Hackwize is a collection of JavaScript bookmarklets that bypass Linewize network filtering in school environments, restoring unrestricted browsing."
+---
+
+Hackwize is an open-source collection of JavaScript bookmarklets designed to remove the restrictions and surveillance imposed by Linewize on school networks. By running entirely in your browser — no installs, no extensions — each tool lets students access blocked websites and reclaim an unrestricted learning environment with a single click.
+
+## What Is Linewize?
+
+Linewize is a network filtering and monitoring platform commonly deployed by schools to control which websites students can visit and to log their browsing activity. While it is intended to enforce acceptable-use policies, it frequently blocks legitimate educational resources and introduces unwanted surveillance. Hackwize targets Linewize's filtering layer directly, exploiting its own mechanisms to disable or route around it.
+
+## What Hackwize Provides
+
+Hackwize ships five tools covering different bypass strategies, from a one-click filter killer to a full floating proxy menu:
+
+<CardGroup cols={2}>
+  <Card title="Linewize Killer" icon="ban" href="/tools/linewize-killer">
+    Redirects the browser to Linewize's own auto-logout endpoint, disabling the active filtering session instantly.
+  </Card>
+  <Card title="Proxies Menu" icon="bars" href="/tools/proxies-menu">
+    Injects a draggable floating overlay into the current page containing links to proxy bookmarklets.
+  </Card>
+  <Card title="Proxies Menu Lite" icon="list" href="/tools/proxies-menu-lite">
+    A lightweight placeholder variant of the Proxies Menu, reserved for a slimmed-down future release.
+  </Card>
+  <Card title="Bookmarklet Menu" icon="bookmark" href="/tools/bookmarklet-menu">
+    A general-purpose bookmarklet launcher menu, currently a placeholder for an upcoming feature.
+  </Card>
+  <Card title="I-Ready Hacks" icon="graduation-cap" href="/tools/iready-hacks">
+    A heavily obfuscated bookmarklet targeting the I-Ready platform, based on the jVoid Revamp codebase.
+  </Card>
+</CardGroup>
+
+## License
+
+Hackwize is released under the **Unlicense**, meaning it is dedicated to the public domain. You are free to copy, modify, publish, use, compile, sell, or distribute any part of this software for any purpose, with no conditions attached.
+
+<Note>
+  The Unlicense carries no warranty of any kind. The software is provided "as is" — see the `LICENSE` file in the repository for the full dedication text.
+</Note>

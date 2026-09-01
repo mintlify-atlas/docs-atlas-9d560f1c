@@ -1,0 +1,42 @@
+---
+title: "Bookmarklet Menu: Custom Draggable Bookmark Overlay"
+sidebarTitle: "Bookmarklet Menu"
+description: "A customisable draggable overlay for organising and launching multiple bookmarklets from a single bookmark, sharing the Proxies Menu UI pattern."
+---
+
+The Bookmarklet Menu is a customisable draggable overlay menu designed for organising and launching multiple bookmarklets from a single browser bookmark. It shares the same draggable floating panel UI pattern as the Proxies Menu — a fixed-position dark panel injected into the current page that can be repositioned freely and hidden with `Ctrl+E` — but ships as a blank slate ready for you to populate with your own bookmarklet entries.
+
+<Note>
+  This tool is currently **in development** and does not yet have a standalone release. The [Proxies Menu](/tools/proxies-menu) provides a fully working implementation of the same UI concept with pre-configured bookmarklets, and is the recommended starting point for building your own custom menu.
+</Note>
+
+## Working Version
+
+<Card title="Proxies Menu" href="/tools/proxies-menu">
+  Full working implementation of the draggable bookmarklet overlay with pre-configured entries
+</Card>
+
+## Customising the Bookmarks Array
+
+The Proxies Menu's `bookmarks` array is the section you edit to create your own personalised menu. Each element is a plain object with two keys: `name` (the label shown in the menu) and `url` (a `javascript:` URI that runs when clicked).
+
+Here is the array as it appears in the Proxies Menu source, which you can modify freely:
+
+```javascript
+var bookmarks = [
+  {
+    name: "I-Ready",
+    url: "javascript:fetch('https://plu.wiki/files/bookmarklet.js').then(r => r.text()).then(r => eval(r))"
+  },
+  {
+    name: "Bookmarklet 2",
+    url: "javascript:alert('Hello from bookmarklet 2!');"
+  },
+  {
+    name: "Redirect Block",
+    url: "javascript:(function(){window.onbeforeunload=function(){return '';}})();"
+  }
+];
+```
+
+To build your own menu, replace or extend these entries with any `javascript:` bookmarklet you want to include. The panel will automatically render one clickable link per entry. There is no hard limit on the number of entries — the content area is scrollable — but keep in mind that very long lists may become unwieldy on small screens.

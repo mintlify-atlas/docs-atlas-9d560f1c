@@ -1,47 +1,64 @@
 ---
-title: "Quickstart"
-description: "Begin with a guide on the fastest path to a successful outcome"
+title: "Get Started with Hackwize in Minutes"
+sidebarTitle: "Quickstart"
+description: "Install and run your first Hackwize bookmarklet in under two minutes — no extensions or installs required, just a browser and a bookmarks bar."
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
-
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
+Getting up and running with Hackwize takes less than two minutes. Bookmarklets live in your browser's bookmarks bar and execute with a single click, so there is nothing to install and nothing that can be detected as an extension. This guide walks you through adding the **Linewize Killer** — the simplest and most direct tool in the collection — so you can verify the workflow before exploring the other tools.
 
 ## Prerequisites
 
-Before you begin, you must have:
+- Any modern desktop browser (Chrome, Firefox, Edge, Safari, Brave, etc.)
+- The **bookmarks bar** visible in your browser (`Ctrl+Shift+B` / `Cmd+Shift+B` toggles it in most browsers)
+- Access to a Linewize-filtered network (school Wi-Fi or Ethernet)
 
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
-
-## Get started
+## Adding the Linewize Killer Bookmarklet
 
 <Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
+  <Step title="Copy the bookmarklet code">
+    The Linewize Killer is a single line of JavaScript beginning with the `javascript:` URI scheme. Copy the full code from the [Linewize Killer tool page](/tools/linewize-killer). It starts like this:
 
-    ```bash
-    npm install your-package
+    ```javascript
+    javascript:function _0x3372(_0x24aa88,_0x2a0ada){var _0x48c5a5=_0x48c5();return _0x3372=function(_0x33726c,_0x33b8b0){_0x33726c=_0x33726c-0x6a;
+    // ... (full code on the tool page)
     ```
+
+    <Tip>
+      The code is intentionally obfuscated to avoid simple text-based content filters — this is expected and normal. Copy it in its entirety.
+    </Tip>
   </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
 
-    ```bash
-    your-cli init
-    ```
+  <Step title="Create a new bookmark in your browser">
+    Open your browser's bookmark manager or right-click the bookmarks bar and choose **Add page** (Chrome/Edge) or **New Bookmark** (Firefox). Give it a memorable name such as `Linewize Killer`.
   </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
 
-    ```bash
-    your-cli start
-    ```
+  <Step title="Paste the code as the bookmark URL">
+    In the **URL** (or **Location**) field of the new bookmark dialog, delete any pre-filled address and paste the full `javascript:...` code you copied in Step 1. Save the bookmark.
+
+    <Note>
+      Some browsers show a warning when you paste a `javascript:` URL directly into the address bar — using the bookmark manager dialog bypasses this restriction.
+    </Note>
+  </Step>
+
+  <Step title="Click the bookmark on a filtered page">
+    Navigate to any page that Linewize is currently blocking or monitoring. Click the **Linewize Killer** bookmark in your bookmarks bar. The bookmarklet will execute and redirect your browser to Linewize's own auto-logout endpoint, disabling the active filtering session.
   </Step>
 </Steps>
 
 <Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
-
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
+  For a detailed walkthrough of adding bookmarklets across different browsers — including mobile — see the full [Installing Bookmarklets guide](/guides/installing-bookmarklets).
 </Tip>
+
+## Next Steps
+
+<CardGroup cols={3}>
+  <Card title="How It Works" icon="gear" href="/how-it-works">
+    Understand the technical techniques behind each bypass method.
+  </Card>
+  <Card title="Linewize Killer" icon="ban" href="/tools/linewize-killer">
+    Full details, source code, and usage notes for the Linewize Killer.
+  </Card>
+  <Card title="Installing Bookmarklets" icon="bookmark" href="/guides/installing-bookmarklets">
+    Step-by-step instructions for every major browser and platform.
+  </Card>
+</CardGroup>
